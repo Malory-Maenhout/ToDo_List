@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="drag.js" defer></script>
+    <script src="todo.js" defer></script>
+</head>
+<body>
+    <div class="board">
+        <form id="todo-form">
+            <input type="text" placeholder="New ToDo..." id = "todo-input"/>
+            <button type="submit"> Add +</button>
+        </form>
+        <div class="lanes">
+            <div class="swim-lane" id="todo-lane">
+                <h3 class="heading">ToDo</h3>
+    
+                <p class="task" draggable="true">test 1</p>
+                <p class="task" draggable="true">test 2</p>
+                <p class="task" draggable="true">test 3</p>
+            </div>
+
+            <div class="swim-lane" id="doing-lane">
+                <h3 class="heading">Doing</h3>
+                
+                <p class="task" draggable="true">test 4</p>
+            </div>
+
+            <div class="swim-lane" id="done-lane">
+                <h3 class="heading">Done</h3>
+    
+                <p class="task" draggable="true">test 5</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
