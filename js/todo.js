@@ -13,9 +13,14 @@ form.addEventListener("submit", (e) => {
     createDatas(input.value);
 
     const newTask = document.createElement("p");
+    const newSpan = document.createElement("span");
+
     newTask.classList.add("task");
     newTask.setAttribute("draggable", "true");
     newTask.innerText = value;
+
+    newSpan.innerText = "todo";
+    newSpan.id = 'invisible';
 
     newTask.addEventListener("dragstart", () => {
         newTask.classList.add("is-dragging");
@@ -25,6 +30,7 @@ form.addEventListener("submit", (e) => {
         newTask.classList.remove("is-dragging");
     });
 
+    newTask.appendChild(newSpan);
     todoLane.appendChild(newTask);
 
     input.value = "";
