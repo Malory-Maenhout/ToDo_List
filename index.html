@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo List</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="drag.js" defer></script>
-    <script src="todo.js" defer></script>
-</head>
-<body>
-    <div class="board">
-        <form id="todo-form">
-            <input type="text" placeholder="New ToDo..." id = "todo-input"/>
-            <button type="submit"> Add +</button>
-        </form>
-        <div class="lanes">
-            <div class="swim-lane" id="todo-lane">
-                <h3 class="heading">ToDo</h3>
-    
-                <p class="task" draggable="true">test 1</p>
-                <p class="task" draggable="true">test 2</p>
-                <p class="task" draggable="true">test 3</p>
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ToDo List</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <script type="module" src="./js/drag.js" defer></script>
+        <script type="module" src="./js/todo.js" defer></script>
+        <script type="module" src="./js/load.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div class="board">
+            <form id="todo-form">
+                <input type="text" placeholder="New ToDo..." id = "todo-input"/>
+                <button type="submit">Add +</button>
+                <button id="idLoad">Load</button>
+            </form>
+            <div class="lanes">
+                <div class="swim-lane" id="todo-lane">
+                    <h3 class="heading">ToDo</h3>
+                    <div class="swim-second-lane" id="taskListTodo"></div>
+                </div>
 
-            <div class="swim-lane" id="doing-lane">
-                <h3 class="heading">Doing</h3>
-                
-                <p class="task" draggable="true">test 4</p>
-            </div>
+                <div class="swim-lane" id="doing-lane">
+                    <h3 class="heading">Doing</h3>  
+                    <div class="swim-second-lane" id="taskListDoing"></div>
+                </div>
 
-            <div class="swim-lane" id="done-lane">
-                <h3 class="heading">Done</h3>
-    
-                <p class="task" draggable="true">test 5</p>
+                <div class="swim-lane" id="done-lane">
+                    <h3 class="heading">Done</h3>
+                    <div class="swim-second-lane" id="taskListDone"></div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

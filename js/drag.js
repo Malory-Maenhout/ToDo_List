@@ -1,5 +1,7 @@
+import { updateDatas } from "../service/fetch.js";
+
 const draggables = document.querySelectorAll(".task");
-const droppables = document.querySelectorAll(".swim-lane");
+const droppables = document.querySelectorAll(".swim-second-lane");
 
 draggables.forEach((task) => {
     task.addEventListener("dragstart", () => {
@@ -16,12 +18,30 @@ droppables.forEach((zone) => {
 
         const bottomTask = insertAboveTask(zone, e.clientY);
         const curTask = document.querySelector(".is-dragging");
+        const spanElem = document.getElementById('invisible');
+        const taskId = curTask.id;
+        const status = spanElem.textContent;
+        const zoneId = zone.id;
 
-        if (!bottomTask) {
-            zone.appendChild(curTask);
+        if (!bottomTask) { 
+            if(zoneId === "taskListDoing" && status === "todo"){
+                spanElem.textContent = "doing";
+                zone.appendChild(curTask);
+            }else if (zoneId === "taskListTodo" && status === "doing"){
+                spanElem.textContent = "todo";
+                zone.appendChild(curTask);
+            } else if (zoneId === "taskListDone" && status === "doing") {
+                spanElem.textContent = "done";
+                zone.appendChild(curTask);
+            } else if (zoneId === "taskListDoing" && status === "done") {
+                spanElem.textContent = "doing";
+                zone.appendChild(curTask);
+            }
         } else {
             zone.insertBefore(curTask, bottomTask);
         }
+        
+        updateDatas(taskId, status);
     });
 });
 
